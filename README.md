@@ -31,3 +31,26 @@ path.resolve("node_modules/metro4-react")
 
 https://webdevblog.ru/razbiraemsya-s-nastrojkoj-webpack-dlya-ljubogo-proekta/
 
+yarn add metro4-react
+yarn install
+yarn start
+
+https://react.metroui.org.ua/guide/push-button
+
+https://github.com/olton/Metro4-React-App/blob/master/public/index.js
+```sh
+<Grid className="h-100 d-flex flex-align-center flex-justify-center">
+<h1>Hello World!</h1>
+<p className="text-leader">
+Welcome to Metro 4 for React App template!
+</p>
+<Button>Button</Button>
+</Grid>
+```
+                             Дополнительные рассылки:
+                             
+https://github.com/olton/Metro4-React/issues/14
+
+https://blog.pimenov.com.ua/2020/06/07/component-template-in-metro-4/
+
+https://zen.yandex.ru/media/nuancesprog/konec-epohi-virtualnogo-dom-react-5f058aea6fb88d06d3f0694c
