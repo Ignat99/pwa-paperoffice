@@ -15,13 +15,28 @@ https://create-react-app.dev/docs/making-a-progressive-web-app/
 npx create-react-app pwa-paperoffice --template cra-template-pwa 
 ```
 
+В файле src/index.js меняем serviceWorker.unregister() на serviceWorker.register() зарегистрированный (для того чтоб вебсервер выдавал ошибку 200 во время offline):
+
+```node
+// If you want your app to work offline and load faster, you can change
+// unregister() to register() below. Note this comes with some pitfalls.
+// Learn more about service workers: https://cra.link/PWA
+serviceWorker.register();
+```
+
+## Webpack
+
 https://blog.pimenov.com.ua/2020/05/08/using-metro4-react-with-cra/
 
 ```sh
 yarn add customize-cra react-app-rewired --dev
 ```
 
-brackets config-overrides.js (Бракетс - кстати значит скобки. В теоретической физике < - bra (так эта скобка называется), >- cket (а эта так)
+```sh
+brackets config-overrides.js 
+```
+
+Бракетс - кстати значит скобки. В теоретической физике < - bra (так эта скобка называется), >- cket (а эта так
 
 ```js
 const {
