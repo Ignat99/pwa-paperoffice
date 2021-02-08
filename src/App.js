@@ -1,9 +1,65 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+import {Router, BrowserRouter, Route, Link} from 'react-router-dom';
 import {Button} from "metro4-react";
 import {Grid,Row,Cell,Input} from 'metro4-react';
 import {Container, HtmlContainer, Checkbox, ImageButton, Icon, Table, Panel} from 'metro4-react';
+
+const Page = ({ title }) => (
+    <div className="App">
+      <header className="App-header">
+        <img src={logo} className="App-logo" alt="logo" />
+        <p>
+          Edit <code>src/App.js</code> and save to reload.
+        </p>
+        <a
+          className="App-link"
+          href="https://reactjs.org"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Learn React
+        </a>
+      </header>
+      <p className="App-intro">
+        This is the {title} page.
+      </p>
+      <p>
+        <Link to="/">Home</Link>
+      </p>
+             <Grid className="h-100 d-flex flex-align-center flex-justify-center">
+                <h1>Simple contact administration</h1>
+                <p className="text-leader">
+                    Welcome to Metro 4 for ReactJS App!
+                </p>
+                <Panel>
+                    <Container>
+                        <Icon name="future-512.png" prefix="fa fa-" cls="icon"/>
+          <div data-role="tile" data-size="large"><img sizes="(max-width: 480px) 95vw, 25vw" src="https://metroui.org.ua/images/me.jpg" alt="Hanter Sergey Pimenov" class="place-right" />
+                        <span class="branding-bar">Sergey Pimenov</span>
+                        </div>
+                        <Input id="name" type="text" prepend="Name: " cls="fa-user" placeholder="User name" />
+                        <Input id="email" type="text" prepend="Email: " cls="mif-envelop" placeholder="Enter your email..." data-validate="required email" />
+                        <Input id="calendar" type="date" name="calendar" />
+                        <Checkbox caption="Remember me"/>
+                        <Row />
+                        <ImageButton title="Send form" className='success'>
+                            <Icon name="rocket" prefix="fa fa-" cls="icon"/> 
+                            <span className="caption">Submit form</span>
+                        </ImageButton>
+                    </Container>
+                </Panel>
+                <Container>
+                    <Table head={tablePropsHeader} body={tablePropsData} className="table-border cell-border"/>
+                </Container>
+            </Grid>
+    </div>
+);
+
+const Home = (props) => (
+  <Page title="Home"/>
+);
 
 const tablePropsHeader = [
     {
@@ -38,48 +94,10 @@ const tablePropsData = [
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-             <Grid className="h-100 d-flex flex-align-center flex-justify-center">
-                <h1>Simple contact administration</h1>
-                <p className="text-leader">
-                    Welcome to Metro 4 for ReactJS App!
-                </p>
-                <Panel>
-                    <Container>
-                        <Icon name="future-512.png" prefix="fa fa-" cls="icon"/>
-          <div data-role="tile" data-size="large"><img sizes="(max-width: 480px) 95vw, 25vw" src="https://metroui.org.ua/images/me.jpg" alt="Hanter Sergey Pimenov" class="place-right" />
-                        <span class="branding-bar">Sergey Pimenov</span>
-                        </div>
-                        <Input id="name" type="text" prepend="Name: " cls="fa-user" placeholder="User name" />
-                        <Input id="email" type="text" prepend="Email: " cls="mif-envelop" placeholder="Enter your email..." data-validate="required email" />
-                        <Input id="calendar" type="date" name="calendar" />
-                        <Checkbox caption="Remember me"/>
-                        <Row />
-                        <ImageButton className='success'>
-                            <Icon name="rocket" prefix="fa fa-" cls="icon"/> 
-                            <span className="caption">Submit form</span>
-                        </ImageButton>
-                    </Container>
-                </Panel>
-                <Container>
-                    <Table head={tablePropsHeader} body={tablePropsData} className="table-border cell-border"/>
-                </Container>
-            </Grid>
-    </div>
+      <BrowserRouter>
+              <Route path="/" component={Home}/>
+      </BrowserRouter>
+
   );
 }
 
