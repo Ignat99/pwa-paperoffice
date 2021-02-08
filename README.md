@@ -9,8 +9,10 @@ npm install -g yarn
 
 https://create-react-app.dev/docs/making-a-progressive-web-app/
 
+Команда устанавливает шаблон приложения React последней версии с хорошими Сервис-Воркерами для PWA.
+
 ```sh
-npx create-react-app pwa-paperoffice --template cra-template-pwa (Оно устанавливает шаблон приложения React последней версии с хорошими Сервис-Воркерами для PWA)
+npx create-react-app pwa-paperoffice --template cra-template-pwa 
 ```
 
 ## Webpack
