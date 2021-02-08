@@ -84,6 +84,8 @@ https://github.com/olton/Metro4-React/issues/14
 
 https://blog.pimenov.com.ua/2020/06/07/component-template-in-metro-4/
 
+https://github.com/olton/Metro-UI-CSS/issues/1426
+
 ## Критика
 
 https://zen.yandex.ru/media/nuancesprog/konec-epohi-virtualnogo-dom-react-5f058aea6fb88d06d3f0694c
