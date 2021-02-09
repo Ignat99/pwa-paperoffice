@@ -1,0 +1,166 @@
+﻿{
+  "header": [
+    {        
+      "name": "id",
+      "title": "Id",
+      "sortable": true,
+      "size": 50
+    },
+    {
+      "name": "name",
+      "title": "User name",
+      "sortable": true,
+      "sortDir": "asc",
+      "size": 400
+    },
+    {
+      "name": "email",
+      "title": "Email",
+      "sortable": true,
+      "size": 400
+    },
+    {
+      "name": "checkbox",
+      "title": "Remember me",
+      "sortable": true,
+      "size": 100
+    },
+    {
+      "name": "birthday",
+      "title": "Birthday",
+      "sortable": true,
+      "format": "date",
+      "size": 100  
+    },
+    {
+      "name": "picture",
+      "title": "Picture",
+      "sortable": true
+    }
+  ],
+
+  "data": [
+    [
+      "Merrill Hartman",
+      "Placerat Cras Dictum Foundation",
+      "Barasat",
+      21,
+      "2009/07/05",
+      "$8,969"
+    ],
+    [
+      "Hayes Christian",
+      "Vehicula Et Rutrum Corp.",
+      "Canela",
+      24,
+      "2006/08/27",
+      "$9,726"
+    ],
+    [
+      "Armand Mclaughlin",
+      "Ornare Placerat Limited",
+      "Saint-Remy",
+      63,
+      "2005/12/06",
+      "$8,174"
+    ],
+    [
+      "Brenda Clements",
+      "Sociis Natoque Penatibus Consulting",
+      "Swan Hill",
+      45,
+      "2008/06/27",
+      "$5,662"
+    ],
+    [
+      "Maisie Andrews",
+      "Fames Ac Industries",
+      "Perth",
+      53,
+      "2008/09/11",
+      "$7,206"
+    ],
+    [
+      "Amy Roman",
+      "Nullam Scelerisque Neque Limited",
+      "Rycroft",
+      57,
+      "2006/07/17",
+      "$7,050"
+    ],
+    [
+      "Selma Klein",
+      "Integer Id Corp.",
+      "Gellik",
+      48,
+      "2009/10/28",
+      "$6,122"
+    ],
+    [
+      "Joan Beasley",
+      "Facilisis LLP",
+      "Berlin",
+      24,
+      "2017/06/25",
+      "$8,827"
+    ],
+    [
+      "Marshall Cohen",
+      "Lorem Vitae Incorporated",
+      "Saharanpur",
+      36,
+      "2002/05/02",
+      "$6,637"
+    ],
+    [
+      "Jesse Alvarez",
+      "Urna Institute",
+      "Erpion",
+      21,
+      "2003/02/24",
+      "$6,877"
+    ],
+    [
+      "Erica Roth",
+      "Vitae Risus Duis LLP",
+      "Kitchener",
+      41,
+      "2000/06/02",
+      "$8,178"
+    ],
+    [
+      "Jerome Cardenas",
+      "Phasellus Elit Pede Company",
+      "Dufftown",
+      61,
+      "2008/01/25",
+      "$9,012"
+    ],
+    [
+      "Hamilton Hatfield",
+      "Dolor Limited",
+      "Mostazal",
+      53,
+      "2017/11/21",
+      "$6,247"
+    ],
+    [
+      "Samuel Wagner",
+      "Sodales Nisi Corp.",
+      "Linlithgow",
+      26,
+      "2013/07/20",
+      "$5,388"
+    ],
+    [
+      "Cruz Paul",
+      "Phasellus Limited",
+      "Gierle",
+      46,
+      "2007/05/12",
+      "$8,817"
+    ]
+  ],
+
+  "footer": []
+}
