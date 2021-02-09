@@ -14,7 +14,8 @@ var tablePropsData = [
 
 var myrows = [
     {id: "1", name: 'Petya Ivanovich', email: 'ivanovich@gmail.com', calendar: '2021-02-07', check: 'Yes', picture: 'pictures1'},
-    {id: "2", name: 'Alina Stepanovna', email: 'stepanovna645@gmail.com', calendar: '2021-02-05', check: 'No', picture: 'pictures2'}
+    {id: "2", name: 'Alina Stepanovna', email: 'stepanovna645@gmail.com', calendar: '2021-02-05', check: 'No', picture: 'pictures2'},
+    {id: "3", name: 'Stepan Kolyada', email: 'stepan15@gmail.com', calendar: '2021-02-01', check: 'No', picture: 'pictures3'}
 ];
 
 let redraw = true;
