@@ -27,13 +27,7 @@ class ContactTable extends Component {
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <th data-name="username">User Name</th>
-                <th data-name="email">Email</th>
-                <th data-name="birthday">Data Birthday</th>
-                <th data-name="checkbox">Remember me</th>
-                <th data-name="picture">Picture</th>
-            </tr>
+
             {items.map(item => {
               return (
                 <tr>
