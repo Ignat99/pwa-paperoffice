@@ -41,12 +41,13 @@ class App extends React.Component {
         super();
         this.state = JSON.parse( localStorage.getItem('localData') );
         if ( this.state === undefined ) {
-            this.state = { username: '', email: '', birthday: '', checkbox: '', picture: '', items: [] }
+            this.state = { username: '', email: '', birthday: '', checkbox: '', picture: '', formValid: false, items: [] }
         }
     };
     
     handleFormSubmit = (e) => {
         e.preventDefault();
+        if(this.state.username !== "" && this.state.email !== "" && this.state.username !== null && this.state.email !== null){
         
         let items = [...this.state.items];
         
@@ -71,6 +72,7 @@ class App extends React.Component {
             checkbox: '',
             picture: ''
         });
+      }
     };
 
     handleInputChange = (e) => {

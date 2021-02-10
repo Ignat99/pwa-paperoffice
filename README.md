@@ -1,5 +1,6 @@
 # pwa-paperoffice
 
+
 ```sh
 cd c:\projects
 git clone https://github.com/Gelya298/pwa-paperoffice
@@ -102,3 +103,9 @@ https://github.com/olton/Metro-UI-CSS/issues/1426
 ## Критика
 
 https://zen.yandex.ru/media/nuancesprog/konec-epohi-virtualnogo-dom-react-5f058aea6fb88d06d3f0694c
+
+## Валидация
+
+https://github.com/olton/Metro-UI-CSS/search?q=data-validate
+
+https://github.com/Ignat99/Metro4-Examples/blob/master/src/administration/table_load_data.html
