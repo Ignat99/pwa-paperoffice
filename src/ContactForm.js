@@ -41,8 +41,8 @@ class ContactForm extends Component {
                             <Checkbox id="checkbox" name="checkbox" caption="Remember me" 
                                 value={this.props.newCheckbox} onCange={this.props.handleInputChange} />
                             <Row />
-                            <ImageButton type="submit" title="Submit form" className='success'>
-                                <Icon name="rocket" prefix="fa fa-" cls="icon"/> 
+                                <ImageButton type="submit" title="Submit form" className='.image-button:focus'>
+                                <Icon name="rocket" prefix="fa fa-" cls="icon"/>
                                 <span className="caption"></span>
                             </ImageButton>
                       </form>
