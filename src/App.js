@@ -3,6 +3,7 @@ import logo from './logo.svg';
 import './App.css';
 import {BrowserRouter, Route, Link} from 'react-router-dom';
 import ContactTable from './ContactTable';
+import ContactMemoryTable from './ContactMemoryTable';
 import ContactForm from './ContactForm';
 import { Grid, Panel } from 'metro4-react';
 
@@ -39,9 +40,14 @@ const Home = (props) => (
 class App extends React.Component {
     constructor() {
         super();
-        this.state = JSON.parse( localStorage.getItem('localData') );
-         
+        
+        let localData = localStorage.getItem('localData')
+        
+        if (typeof localData === 'undefined') { 
             this.state = { username: '', email: '', birthday: '', checkbox: '', picture: '', formValid: false, items: [] }
+        } else {
+            this.state = JSON.parse(localData);
+        }
         
     };
     
@@ -105,6 +111,7 @@ class App extends React.Component {
                                 />
                         </Panel>
                         <ContactTable items={ this.state.items }/>
+                        <ContactMemoryTable items={ this.state.items }/>
                     </Grid>
                 </div>          
                 <Route path="/" component={Home}/>

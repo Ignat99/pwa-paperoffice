@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {Table} from 'metro4-react';
+import {Table, MemoryTable} from 'metro4-react';
 
 class ContactTable extends Component {
   render() {
