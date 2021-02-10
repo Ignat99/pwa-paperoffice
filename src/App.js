@@ -41,13 +41,42 @@ class App extends React.Component {
     constructor() {
         super();
         
-        let localData = localStorage.getItem('localData')
+  //      this.state = { username: '', email: '', birthday: '', checkbox: '', picture: '', formvalid: false, items: [] };
+ /*       this.state = { username: '', email: '', birthday: '', checkbox: '', picture: '',
+                items:
+                    [
+                      {
+                        "username": "ignat99",
+                        "email": "ignat99@gmail.com",
+                        "birthday": "",
+                        "checkbox": "",
+                        "picture": ""
+                      }
+                    ]
+            };
+*/
+       
         
         if (typeof localData === 'undefined') { 
-            this.state = { username: '', email: '', birthday: '', checkbox: '', picture: '', formValid: false, items: [] }
+            this.state = { username: '', email: '', birthday: '', checkbox: '', picture: '',
+                items:
+                    [
+                      {
+                        "username": "ignat99",
+                        "email": "ignat99@gmail.com",
+                        "birthday": "",
+                        "checkbox": "",
+                        "picture": ""
+                      }
+                    ]
+            }; 
         } else {
-            this.state = JSON.parse(localData);
-        }
+            this.state.formvalid = true;
+//            let localData = localStorage.getItem('localData');
+ //           this.state = JSON.parse(localData);
+        }       
+        
+        
         
     };
     
@@ -77,7 +106,7 @@ class App extends React.Component {
             birthday: '',
             checkbox: '',
             picture: '',
-            formValid: true
+            formvalid: true
         });
     
     };
@@ -92,7 +121,32 @@ class App extends React.Component {
         })
     };
 
-    render() { 
+    render() {
+
+        if (this.state.formvalid === false ) { 
+             this.state = { username: '', email: '', birthday: '', checkbox: '', picture: '', formvalid: true,
+                items:
+                    [
+                      {
+                        "username": "ignat99",
+                        "email": "ignat99@gmail.com",
+                        "birthday": "",
+                        "checkbox": "",
+                        "picture": "",
+                        "formvalid": true
+                      }
+                    ]
+            };       
+        
+ 
+        localStorage.setItem('localData', JSON.stringify(this.state));
+        this.state.formvalid = true;
+        }
+//        let localData = localStorage.getItem('localData');
+//        this.state = JSON.parse(localData);
+        
+        
+        
         return (
             <BrowserRouter>          
                 <div className="App">
