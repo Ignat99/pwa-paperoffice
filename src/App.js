@@ -6,6 +6,7 @@ import ContactTable from './ContactTable';
 import ContactMemoryTable from './ContactMemoryTable';
 import ContactForm from './ContactForm';
 import { Grid, Panel } from 'metro4-react';
+import { Icon }  from 'metro4-react';
 
 const Page = ({ title }) => (
     <div className="App">
@@ -41,42 +42,13 @@ class App extends React.Component {
     constructor() {
         super();
         
-  //      this.state = { username: '', email: '', birthday: '', checkbox: '', picture: '', formvalid: false, items: [] };
- /*       this.state = { username: '', email: '', birthday: '', checkbox: '', picture: '',
-                items:
-                    [
-                      {
-                        "username": "ignat99",
-                        "email": "ignat99@gmail.com",
-                        "birthday": "",
-                        "checkbox": "",
-                        "picture": ""
-                      }
-                    ]
-            };
-*/
-       
+        let localData = localStorage.getItem('localData')
         
         if (typeof localData === 'undefined') { 
-            this.state = { username: '', email: '', birthday: '', checkbox: '', picture: '',
-                items:
-                    [
-                      {
-                        "username": "ignat99",
-                        "email": "ignat99@gmail.com",
-                        "birthday": "",
-                        "checkbox": "",
-                        "picture": ""
-                      }
-                    ]
-            }; 
+            this.state = { username: '', email: '', birthday: '', checkbox: '', picture: '', formValid: false, items: [] }
         } else {
-            this.state.formvalid = true;
-//            let localData = localStorage.getItem('localData');
- //           this.state = JSON.parse(localData);
-        }       
-        
-        
+            this.state = JSON.parse(localData);
+        }
         
     };
     
@@ -106,7 +78,7 @@ class App extends React.Component {
             birthday: '',
             checkbox: '',
             picture: '',
-            formvalid: true
+            formValid: true
         });
     
     };
@@ -122,31 +94,7 @@ class App extends React.Component {
     };
 
     render() {
-
-        if (this.state.formvalid === false ) { 
-             this.state = { username: '', email: '', birthday: '', checkbox: '', picture: '', formvalid: true,
-                items:
-                    [
-                      {
-                        "username": "ignat99",
-                        "email": "ignat99@gmail.com",
-                        "birthday": "",
-                        "checkbox": "",
-                        "picture": "",
-                        "formvalid": true
-                      }
-                    ]
-            };       
-        
- 
-        localStorage.setItem('localData', JSON.stringify(this.state));
-        this.state.formvalid = true;
-        }
-//        let localData = localStorage.getItem('localData');
-//        this.state = JSON.parse(localData);
-        
-        
-        
+        this.state = { username: '', email: '', birthday: '', checkbox: '', picture: '', formValid: false, items: [] };
         return (
             <BrowserRouter>          
                 <div className="App">
@@ -155,8 +103,9 @@ class App extends React.Component {
                         <p className="text-leader">
                             Welcome to Metro 4 for ReactJS App!
                         </p>
-                        <Panel>
-                        
+                    <Panel caption={'Panel'} clsContent={'bg-light p-4'} icon={'rocket'} iconPrefix={'fa fa-'} clsIcon={'fg-yellow no-border'} clsDropdownToggle={'no-border marker-light'} clsCaption={'text-bold'} clsTitle={'bg-gray fg-white'}>
+                    <Icon name="rocket" cls="fg-orange" size="5x"/>
+
                             <ContactForm  
                                 handleFormSubmit={ this.handleFormSubmit } 
                                 handleInputChange={ this.handleInputChange }
