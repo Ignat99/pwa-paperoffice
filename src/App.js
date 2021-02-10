@@ -40,14 +40,14 @@ class App extends React.Component {
     constructor() {
         super();
         this.state = JSON.parse( localStorage.getItem('localData') );
-        if ( this.state === undefined ) {
+         
             this.state = { username: '', email: '', birthday: '', checkbox: '', picture: '', formValid: false, items: [] }
-        }
+        
     };
     
     handleFormSubmit = (e) => {
         e.preventDefault();
-        if(this.state.username !== "" && this.state.email !== "" && this.state.username !== null && this.state.email !== null){
+        
         
         let items = [...this.state.items];
         
@@ -70,9 +70,10 @@ class App extends React.Component {
             email: '',
             birthday: '',
             checkbox: '',
-            picture: ''
+            picture: '',
+            formValid: true
         });
-      }
+    
     };
 
     handleInputChange = (e) => {
@@ -89,19 +90,22 @@ class App extends React.Component {
         return (
             <BrowserRouter>          
                 <div className="App">
-                    <Grid className="h-100 d-flex flex-align-center flex-justify-center"> 
+                    <Grid className="h-100 d-flex flex-align-center flex-justify-center">
                         <h1>Simple contact administration</h1>
                         <p className="text-leader">
                             Welcome to Metro 4 for ReactJS App!
                         </p>
                         <Panel>
-                            <ContactForm  handleFormSubmit={ this.handleFormSubmit } 
-                                handleInputChange={ this.handleInputChange } 
+                        
+                            <ContactForm  
+                                handleFormSubmit={ this.handleFormSubmit } 
+                                handleInputChange={ this.handleInputChange }
                                 newUsername={ this.state.username } 
-                                newEmail={ this.state.email } />
+                                newEmail={ this.state.email } 
+                                />
                         </Panel>
                         <ContactTable items={ this.state.items }/>
-                    </Grid> 
+                    </Grid>
                 </div>          
                 <Route path="/" component={Home}/>
             </BrowserRouter>           

@@ -22,13 +22,13 @@ class ContactForm extends Component {
         <label htmlFor="username">
             Username:
           <input id="username" value={this.props.newUsername} 
-            type="text" name="username"
+            type="text" name="username"  
             onChange={this.props.handleInputChange} />
           </label>
           <label for="email">
           Email:
           <input id="email" value={this.props.newEmail} 
-            type="text" name="email"
+            type="text" name="email" 
             onChange={this.props.handleInputChange} />
           </label>     
 
