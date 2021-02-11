@@ -50,6 +50,7 @@ class CapturePicturePlayer extends React.Component {
 
     console.log(canvas.toDataURL());
     this.setState({ imageDataURL: canvas.toDataURL() });
+    this.props.newPictureURL(canvas.toDataURL());
   };
 
   render() {
@@ -63,6 +64,7 @@ class CapturePicturePlayer extends React.Component {
         autoPlay
       ></video>
     );
+    
 
     return (
       <div className="CapturePicturePlayer">

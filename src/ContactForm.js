@@ -3,6 +3,14 @@ import { Row, Checkbox, ImageButton, Icon, Container } from 'metro4-react';
 import CapturePicturePlayer from './CapturePicturePlayer';
 
 class ContactForm extends Component {
+    
+    
+    handleNewPicture = (e) => {
+        alert(e);
+        this.props.handleInputChange({target: {name: "picture", value: e}});
+        
+    };
+    
     render() {
         return(
                     <div id="ContactForm">
@@ -13,7 +21,7 @@ class ContactForm extends Component {
                                     src="future-512.png" prefix="fa mif-" cls="icon"/>
                             </div>
             
-            <CapturePicturePlayer />
+            <CapturePicturePlayer newPictureURL={ this.handleNewPicture } />
             
                             <div data-role="tile" data-size="large">
                                 <img sizes="(max-width: 480px) 95vw, 25vw" 
