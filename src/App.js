@@ -53,7 +53,7 @@ class App extends React.Component {
                 items:
                     [
                       {
-                        "username": "ignat99",
+                        "username": "ignat9",
                         "email": "ignat99@gmail.com",
                         "birthday": "",
                         "checkbox": "",
@@ -69,7 +69,7 @@ class App extends React.Component {
    /*     } else if (this.state.formvalid === true) {
             let localData = localStorage.getItem('localData');
             this.state = JSON.parse(localData);
-        }else { 
+        }else {
             this.state.formvalid = true; */
             let localData = localStorage.getItem('localData');
             this.state = JSON.parse(localData);
@@ -101,7 +101,7 @@ class App extends React.Component {
         // Every time when push to button we put to local data
         localStorage.setItem('localData', JSON.stringify(this.state));
         let localData = localStorage.getItem('localData');
-        this.setState(JSON.parse(localData));
+        this.state = JSON.parse(localData);
 
         this.setState({
             items,
@@ -120,9 +120,12 @@ class App extends React.Component {
         let name = e.target.name;
         let value = e.target.value;
 
-        this.setState({
-            [name]: value
-        })
+        if (this.state.formvalid === true) {
+            this.setState({
+                [name]: value
+            })
+        }
+  //      this.state = {[name]: value};
     };
 
     render() {
@@ -133,22 +136,24 @@ class App extends React.Component {
             if (proba !== null) {
                 if (proba.formvalid !== null) {
                     if (proba.formvalid === false) {
-                        this.setState(proba);
+                        this.state=proba;
                     } else {
-                     //this.state = { username: '', email: '', birthday: '', checkbox: '', picture: '', formvalid: false, items: [] }; 
-                       // localStorage.setItem('localData', JSON.stringify(this.state));
-                      //  let localData = localStorage.getItem('localData');
+                        if (proba.formvalid === false) {
+                     this.state = { username: '', email: '', birthday: '', checkbox: '', picture: '', formvalid: true, items: [] }; 
+                        }
+                        localStorage.setItem('localData', JSON.stringify(this.state));
+                        localData = localStorage.getItem('localData');
                    
                     
                     }
-                }
+                } 
             }  else {
-                   this.setState({ username: '', email: '', birthday: '', checkbox: '', picture: '', formvalid: true, items: [] }); 
+                   this.state= { username: '', email: '', birthday: '', checkbox: '', picture: '', formvalid: true, items: [] }; 
                     localStorage.setItem('localData', JSON.stringify(this.state));
                     localData = localStorage.getItem('localData');
                 }
         } else { 
-             this.setState({ username: '', email: '', birthday: '', checkbox: '', picture: '', formvalid: true,
+             this.state = { username: '', email: '', birthday: '', checkbox: '', picture: '', formvalid: true,
                 items:
                     [
                       {
@@ -160,8 +165,8 @@ class App extends React.Component {
                         "formvalid": false
                       }
                     ]
-            });       
-        localStorage.setItem('localData', JSON.stringify(this.state));
+            };       
+  //      localStorage.setItem('localData', JSON.stringify(this.state));
         this.state.formvalid = true;
         }  
         
@@ -173,9 +178,9 @@ class App extends React.Component {
                         <p className="text-leader">
                             Welcome to Metro 4 for ReactJS App!
                         </p>
-                        <Panel caption={'Panel'} clsContent={'bg-light p-4'} icon={'rocket'} iconPrefix={'fa fa-'} clsIcon={'fg-yellow no-border'} clsDropdownToggle={'no-border marker-light'} clsCaption={'text-bold'} clsTitle={'bg-gray fg-white'}>
+                        <Panel caption={'Panel'} clsContent={'bg-light p-4'} icon={'rocket'} iconPrefix={'fa fa-'} clsIcon={'fg-yellow no-border'} clsDropdownToggle={'no-border marker-light'} clsCaption={'text-bold'} clsTitle={'bg-gray fg-white'} >
 
-                    <Icon name="rocket" cls="fg-orange" size="5x"/>
+                            <Icon name="rocket" cls="fg-orange" size="5x"/>
                         
                             <ContactForm  
                                 handleFormSubmit={ this.handleFormSubmit } 

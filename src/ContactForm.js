@@ -48,7 +48,7 @@ class ContactForm extends Component {
             <Checkbox id="checkbox" name="checkbox" 
                 value={this.props.newCheckbox} onCange={this.props.handleInputChange} />
         </label>
-                            <Row />
+                            
 
             <ImageButton type="submit" title="Submit form" className='.image-button:focus'>
                                 <Icon name="rocket" prefix="fa fa-" cls="icon"/> 

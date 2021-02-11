@@ -19,15 +19,14 @@ class ContactTable extends Component {
         data-show-activity="false">
         <thead>
             <tr>
-                <th data-name="User name: ">Name</th>
-                <th data-name="email">Email</th>
-                <th data-name="birthday">Data Birthday</th>
-                <th data-name="checkbox">Remember me</th>
-                <th data-name="picture">Picture</th>
+                <th  data-name="username" class="sortable-column sort-asc">Name</th>
+                <th  data-name="email" class="sortable-column sort-desc">Email</th>
+                <th  data-name="birthday" class="sortable-column" data-format="date">Data Birthday</th>
+                <th  data-name="checkbox" class="sortable-column">Remember me</th>
+                <th data-name="picture" class="sortable-column" >Picture</th>
             </tr>
         </thead>
         <tbody>
-
             {items.map(item => {
               return (
                 <tr>
