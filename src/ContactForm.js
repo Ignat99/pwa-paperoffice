@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Input, Row, Checkbox, ImageButton, Icon, Container } from 'metro4-react';
+import { Row, Checkbox, ImageButton, Icon, Container } from 'metro4-react';
 
 class ContactForm extends Component {
     render() {
@@ -23,28 +23,37 @@ class ContactForm extends Component {
             Username:
           <input id="username" value={this.props.newUsername} 
             type="text" name="username"  
-            onChange={this.props.handleInputChange} />
-          </label>
-          <label for="email">
+                onChange={this.props.handleInputChange} />
+        </label>
+            
+        <label htmlFor="email">
           Email:
           <input id="email" value={this.props.newEmail} 
             type="text" name="email" 
-            onChange={this.props.handleInputChange} />
-          </label>     
+                onChange={this.props.handleInputChange} />
+        </label>     
 
             
             
 
+        <label htmlFor="birthday">
+            Birthday:
+            <input id="birthday" value={this.props.newBirthday}
+                type="text" name="birthday" 
+                onCange={this.props.handleInputChange} />
+        </label>
             
-                            <Input id="birthday" type="date" name="birthday" prepend="Birthday: " 
-                                value={this.props.newBirthday} onCange={this.props.handleInputChange}  />
-                            <Checkbox id="checkbox" name="checkbox" caption="Remember me" 
-                                value={this.props.newCheckbox} onCange={this.props.handleInputChange} />
+        <label htmlFor="checkbox">
+            Remember me:
+            <Checkbox id="checkbox" name="checkbox" 
+                value={this.props.newCheckbox} onCange={this.props.handleInputChange} />
+        </label>
                             <Row />
-                                <ImageButton type="submit" title="Submit form" className='.image-button:focus'>
-                                <Icon name="rocket" prefix="fa fa-" cls="icon"/>
+
+            <ImageButton type="submit" title="Submit form" className='.image-button:focus'>
+                                <Icon name="rocket" prefix="fa fa-" cls="icon"/> 
                                 <span className="caption"></span>
-                            </ImageButton>
+            </ImageButton>
                       </form>
                     </div>
         );

@@ -41,14 +41,42 @@ const Home = (props) => (
 class App extends React.Component {
     constructor() {
         super();
+        // first start
+        this.state = { username: '', email: '', birthday: '', checkbox: '', picture: '', formvalid: false, items: [] };
+        let localData = localStorage.getItem('localData');
         
-        let localData = localStorage.getItem('localData')
         
-        if (typeof localData === 'undefined') { 
-            this.state = { username: '', email: '', birthday: '', checkbox: '', picture: '', formValid: false, items: [] }
-        } else {
+        // regular start
+        if (typeof localData === 'undefined') {
+        
+            this.state = { username: '', email: '', birthday: '', checkbox: '', picture: '', formvalid: true,
+                items:
+                    [
+                      {
+                        "username": "ignat99",
+                        "email": "ignat99@gmail.com",
+                        "birthday": "",
+                        "checkbox": "",
+                        "picture": "",
+                        "formvalid": false,
+                      }
+                    ]
+            }; 
+            
+                    // Every time when push to button we put to local data
+        localStorage.setItem('localData', JSON.stringify(this.state));
+            
+   /*     } else if (this.state.formvalid === true) {
+            let localData = localStorage.getItem('localData');
             this.state = JSON.parse(localData);
-        }
+        }else { 
+            this.state.formvalid = true; */
+            let localData = localStorage.getItem('localData');
+            this.state = JSON.parse(localData);
+        }  else {
+            this.state = JSON.parse(localData);
+            
+        }            
         
     };
     
@@ -60,16 +88,20 @@ class App extends React.Component {
         
         
         
-        
+        // We put old object to array
         items.push({
             username: this.state.username,
             email: this.state.email,
             birthday: this.state.birthday,
             checkbox: this.state.checkbox,
-            picture: this.state.picture
+            picture: this.state.picture,
+            formvalid: this.state.formvalid
         });
         
+        // Every time when push to button we put to local data
         localStorage.setItem('localData', JSON.stringify(this.state));
+        let localData = localStorage.getItem('localData');
+        this.setState(JSON.parse(localData));
 
         this.setState({
             items,
@@ -78,7 +110,7 @@ class App extends React.Component {
             birthday: '',
             checkbox: '',
             picture: '',
-            formValid: true
+            formvalid: true
         });
     
     };
@@ -94,7 +126,45 @@ class App extends React.Component {
     };
 
     render() {
-        this.state = { username: '', email: '', birthday: '', checkbox: '', picture: '', formValid: false, items: [] };
+        
+        let localData = localStorage.getItem('localData');
+        if (typeof localData !== 'undefined') {
+            let proba = JSON.parse(localData);
+            if (proba !== null) {
+                if (proba.formvalid !== null) {
+                    if (proba.formvalid === false) {
+                        this.setState(proba);
+                    } else {
+                     //this.state = { username: '', email: '', birthday: '', checkbox: '', picture: '', formvalid: false, items: [] }; 
+                       // localStorage.setItem('localData', JSON.stringify(this.state));
+                      //  let localData = localStorage.getItem('localData');
+                   
+                    
+                    }
+                }
+            }  else {
+                   this.setState({ username: '', email: '', birthday: '', checkbox: '', picture: '', formvalid: true, items: [] }); 
+                    localStorage.setItem('localData', JSON.stringify(this.state));
+                    localData = localStorage.getItem('localData');
+                }
+        } else { 
+             this.setState({ username: '', email: '', birthday: '', checkbox: '', picture: '', formvalid: true,
+                items:
+                    [
+                      {
+                        "username": "ignat99",
+                        "email": "ignat99@gmail.com",
+                        "birthday": "10/02/2021",
+                        "checkbox": "Yes",
+                        "picture": "picture1",
+                        "formvalid": false
+                      }
+                    ]
+            });       
+        localStorage.setItem('localData', JSON.stringify(this.state));
+        this.state.formvalid = true;
+        }  
+        
         return (
             <BrowserRouter>          
                 <div className="App">
@@ -103,14 +173,18 @@ class App extends React.Component {
                         <p className="text-leader">
                             Welcome to Metro 4 for ReactJS App!
                         </p>
-                    <Panel caption={'Panel'} clsContent={'bg-light p-4'} icon={'rocket'} iconPrefix={'fa fa-'} clsIcon={'fg-yellow no-border'} clsDropdownToggle={'no-border marker-light'} clsCaption={'text-bold'} clsTitle={'bg-gray fg-white'}>
-                    <Icon name="rocket" cls="fg-orange" size="5x"/>
+                        <Panel caption={'Panel'} clsContent={'bg-light p-4'} icon={'rocket'} iconPrefix={'fa fa-'} clsIcon={'fg-yellow no-border'} clsDropdownToggle={'no-border marker-light'} clsCaption={'text-bold'} clsTitle={'bg-gray fg-white'}>
 
+                    <Icon name="rocket" cls="fg-orange" size="5x"/>
+                        
                             <ContactForm  
                                 handleFormSubmit={ this.handleFormSubmit } 
                                 handleInputChange={ this.handleInputChange }
                                 newUsername={ this.state.username } 
-                                newEmail={ this.state.email } 
+                                newEmail={ this.state.email }
+                                newBirthday={ this.state.birthday }
+                                newCheckbox={ this.state.checkbox }
+                                newPicture={ this.state.picture }
                                 />
                         </Panel>
                         <ContactTable items={ this.state.items }/>
