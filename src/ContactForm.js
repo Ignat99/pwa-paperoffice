@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Row, Checkbox, ImageButton, Icon, Container } from 'metro4-react';
+import CapturePicturePlayer from './CapturePicturePlayer';
 
 class ContactForm extends Component {
     render() {
@@ -11,6 +12,9 @@ class ContactForm extends Component {
                                 <Icon sizes="51,51" 
                                     src="future-512.png" prefix="fa mif-" cls="icon"/>
                             </div>
+            
+            <CapturePicturePlayer />
+            
                             <div data-role="tile" data-size="large">
                                 <img sizes="(max-width: 480px) 95vw, 25vw" 
                                     src="https://metroui.org.ua/images/me.jpg" 
