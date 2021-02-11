@@ -63,20 +63,43 @@ class App extends React.Component {
                     ]
             }; 
             
-                    // Every time when push to button we put to local data
-        localStorage.setItem('localData', JSON.stringify(this.state));
+
             
-   /*     } else if (this.state.formvalid === true) {
+                 let items = [...this.state.items];
+            
+                    // We put old object to array
+        items.push({
+            username: this.state.username,
+            email: this.state.email,
+            birthday: this.state.birthday,
+            checkbox: this.state.checkbox,
+            picture: this.state.picture,
+            formvalid: this.state.formvalid
+        });
+            
+                       // Every time when push to button we put to local data
+        localStorage.setItem('localData', JSON.stringify(this.state));         
+            
+ 
             let localData = localStorage.getItem('localData');
             this.state = JSON.parse(localData);
-        }else {
-            this.state.formvalid = true; */
-            let localData = localStorage.getItem('localData');
-            this.state = JSON.parse(localData);
+            
+                         this.setState({
+            items,
+            username: '',
+            email: '',
+            birthday: '',
+            checkbox: '',
+            picture: '',
+            formvalid: true
+        });
+            
         }  else {
             this.state = JSON.parse(localData);
             
-        }            
+        } 
+        
+   
         
     };
     
@@ -119,6 +142,33 @@ class App extends React.Component {
         
         let name = e.target.name;
         let value = e.target.value;
+        
+                let items = [...this.state.items];
+        
+        
+        
+        // We put old object to array
+   /*     items.push({
+            username: this.state.username,
+            email: this.state.email,
+            birthday: this.state.birthday,
+            checkbox: this.state.checkbox,
+            picture: this.state.picture,
+            formvalid: this.state.formvalid
+        }); */
+
+        
+        
+        this.setState({
+            items,
+            formvalid: true
+        });
+        
+        // Every time when push to button we put to local data
+       // localStorage.setItem('localData', JSON.stringify(this.state));
+     //   let localData = localStorage.getItem('localData');
+   //     this.state = JSON.parse(localData);
+
 
         if (this.state.formvalid === true) {
             this.setState({
