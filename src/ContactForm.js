@@ -20,14 +20,8 @@ class ContactForm extends Component {
                                 <Icon sizes="51,51" 
                                     src="future-512.png" prefix="fa mif-" cls="icon"/>
                             </div>
-            
-            <CapturePicturePlayer newPictureURL={ this.handleNewPicture } />
-            
                             <div data-role="tile" data-size="large">
-                                <img sizes="(max-width: 480px) 95vw, 25vw" 
-                                    src="https://metroui.org.ua/images/me.jpg" 
-                                    alt="Hanter Sergey Pimenov" class="place-right" />
-                                <span class="branding-bar">Sergey Pimenov</span>
+                                <CapturePicturePlayer newPictureURL={ this.handleNewPicture } />  
                             </div>
                         </Container>
 
