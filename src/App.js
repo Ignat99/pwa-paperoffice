@@ -243,7 +243,6 @@ class App extends React.Component {
                                 newPicture={ this.state.picture }
                                 />
                         </Panel>
-                        <ContactTable items={ this.state.items }/>
                         <ContactMemoryTable items={ this.state.items }/>
                     </Grid>
                 </div>          
