@@ -9,6 +9,9 @@ export default class ContactMemoryTable extends MemoryTable {
         if (props.name === 'name') {
             return <a href="#">{val}</a>
         }
+        if (props.name == 'picture') {
+            return <img src={val} />
+        }
         return val;
     };
     
