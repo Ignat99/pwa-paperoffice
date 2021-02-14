@@ -1,5 +1,5 @@
 import React from 'react';
-import logo from './logo.svg';
+import logo from './future-512.png';
 import './App.css';
 import {BrowserRouter, Route, Link} from 'react-router-dom';
 import ContactMemoryTable from './ContactMemoryTable';
