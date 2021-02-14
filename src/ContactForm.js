@@ -30,8 +30,8 @@ class ContactForm extends Component {
                             value={this.props.newEmail} onChange={this.props.handleInputChange}  />
                         <Input id="birthday" type="date" name="birthday" 
                             value={this.props.mewBirthday} onChange={this.props.handleInputChange}  />
-                        <Checkbox caption="Remember me"
-                            value={this.props.newCheckbox} onChange={this.props.handleInputChange}  />
+                        <Checkbox name="checkbox" caption="Remember me"
+                            variant={this.props.newCheckbox} onChange={this.props.handleInputChange}  />
                         <ImageButton type="submit" title="Submit form" className='.image-button:focus'>
                             <Icon name="rocket" prefix="fa fa-" cls="icon"/> 
                             <span className="caption"></span>
