@@ -41,18 +41,21 @@ class App extends React.Component {
     constructor() {
         super();
         // first start
-        this.state = { username: '', email: '', birthday: '', checkbox: '', picture: '', formvalid: false, items: [] };
+        this.state = { username: '', nickname: '', password: '', urllink: '', email: '', birthday: '', checkbox: '', picture: '', formvalid: false, items: [] };
         let localData = localStorage.getItem('localData');
         
         
         // regular start
         if (typeof localData === 'undefined') {
         
-            this.state = { username: '', email: '', birthday: '', checkbox: '', picture: '', formvalid: true,
+            this.state = { username: '', nickname: '', password: '', urllink: '', email: '', birthday: '', checkbox: '', picture: '', formvalid: true,
                 items:
                     [
                       {
-                        "username": "ignat9",
+                        "username": "Ignat Ignatov",
+                        "nickname": 'ignat99',
+                        "password": 'nolde123',
+                        "urllink": 'https://homedevice.pro/#slider',
                         "email": "ignat99@gmail.com",
                         "birthday": "",
                         "checkbox": "",
@@ -69,6 +72,9 @@ class App extends React.Component {
                     // We put old object to array
         items.push({
             username: this.state.username,
+            nickname: this.state.nickname,
+            password: this.state.password,
+            urllink: this.state.urllink,
             email: this.state.email,
             birthday: this.state.birthday,
             checkbox: this.state.checkbox,
@@ -86,6 +92,9 @@ class App extends React.Component {
                          this.setState({
             items,
             username: '',
+            nickname: '',
+            password: '',
+            urllink: '',
             email: '',
             birthday: '',
             checkbox: '',
@@ -113,6 +122,9 @@ class App extends React.Component {
         // We put old object to array
         items.push({
             username: this.state.username,
+            nickname: this.state.nickname,
+            password: this.state.password,
+            urllink: this.state.urllink,
             email: this.state.email,
             birthday: this.state.birthday,
             checkbox: this.state.checkbox,
@@ -128,6 +140,9 @@ class App extends React.Component {
         this.setState({
             items,
             username: '',
+            nickname: '',
+            password: '',
+            urllink: '',
             email: '',
             birthday: '',
             checkbox: '',
@@ -188,7 +203,7 @@ class App extends React.Component {
                         this.state=proba;
                     } else {
                         if (proba.formvalid === false) {
-                     this.state = { username: '', email: '', birthday: '', checkbox: '', picture: '', formvalid: true, items: [] }; 
+                     this.state = { username: '', nickname: '', password: '', urllink: '', email: '', birthday: '', checkbox: '', picture: '', formvalid: true, items: [] }; 
                         }
                         localStorage.setItem('localData', JSON.stringify(this.state));
                         localData = localStorage.getItem('localData');
@@ -197,16 +212,19 @@ class App extends React.Component {
                     }
                 } 
             }  else {
-                   this.state= { username: '', email: '', birthday: '', checkbox: '', picture: '', formvalid: true, items: [] }; 
+                   this.state= { username: '', nickname: '', password: '', urllink: '', email: '', birthday: '', checkbox: '', picture: '', formvalid: true, items: [] }; 
                     localStorage.setItem('localData', JSON.stringify(this.state));
                     localData = localStorage.getItem('localData');
                 }
         } else { 
-             this.state = { username: '', email: '', birthday: '', checkbox: '', picture: '', formvalid: true,
+             this.state = { username: '', nickname: '', password: '', urllink: '', email: '', birthday: '', checkbox: '', picture: '', formvalid: true,
                 items:
                     [
                       {
-                        "username": "ignat99",
+                        "username": "Ignat Ignatov",
+                        "nickname": 'ignat99',
+                        "password": 'nolde123',
+                        "urllink": 'https://homedevice.pro/#slider',
                         "email": "ignat99@gmail.com",
                         "birthday": "10/02/2021",
                         "checkbox": "Yes",
@@ -235,6 +253,9 @@ class App extends React.Component {
                                 handleFormSubmit={ this.handleFormSubmit } 
                                 handleInputChange={ this.handleInputChange }
                                 newUsername={ this.state.username } 
+                                newNickname={ this.state.nickname } 
+                                newPassword={ this.state.password }
+                                newUrllink={ this.state.urllink } 
                                 newEmail={ this.state.email }
                                 newBirthday={ this.state.birthday }
                                 newCheckbox={ this.state.checkbox }

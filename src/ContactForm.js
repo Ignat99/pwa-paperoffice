@@ -26,6 +26,12 @@ class ContactForm extends Component {
                     </Container>
                         <Input id="username" type="text" name="username" prepend="Name: " cls="fa-user" placeholder="User name" 
                             value={this.props.newUsername} onChange={this.props.handleInputChange} />
+                        <Input id="nickname" type="text" name="nickname" prepend="Nick: " cls="fa-user" placeholder="Nickname" 
+                            value={this.props.newNickname} onChange={this.props.handleInputChange} />
+                        <Input id="password" type="text" name="password" prepend="Pass: " cls="fa-user" placeholder="Password" 
+                            value={this.props.newPassword} onChange={this.props.handleInputChange} />
+                        <Input id="urllink" type="text" name="urllink" prepend="Link: " cls="fa-user" placeholder="URL link" 
+                            value={this.props.newUrllink} onChange={this.props.handleInputChange} />
                         <Input id="email" type="text" name="email" prepend="Email: " cls="mif-envelop" placeholder="Enter your email..." data-validate="required email" 
                             value={this.props.newEmail} onChange={this.props.handleInputChange}  />
                         <Input id="birthday" type="date" name="birthday" 
