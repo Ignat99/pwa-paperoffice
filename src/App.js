@@ -41,14 +41,14 @@ class App extends React.Component {
     constructor() {
         super();
         // first start
-        this.state = { username: '', nickname: '', password: '', urllink: '', email: '', birthday: '', checkbox: '', picture: '', formvalid: false, items: [] };
+        this.state = { username: '', nickname: '', password: '', urllink: '', email: '', birthday: '', checkbox: '', picture: '', formvalid: false, emailvalid: 'required', items: [] };
         let localData = localStorage.getItem('localData');
         
         
         // regular start
         if (typeof localData === 'undefined') {
         
-            this.state = { username: '', nickname: '', password: '', urllink: '', email: '', birthday: '', checkbox: '', picture: '', formvalid: true,
+            this.state = { username: '', nickname: '', password: '', urllink: '', email: '', birthday: '', checkbox: '', picture: '', formvalid: true,  emailvalid: 'required',
                 items:
                     [
                       {
@@ -61,6 +61,7 @@ class App extends React.Component {
                         "checkbox": "",
                         "picture": "",
                         "formvalid": false,
+                        "emailvalid": 'required',
                       }
                     ]
             }; 
@@ -79,7 +80,8 @@ class App extends React.Component {
             birthday: this.state.birthday,
             checkbox: this.state.checkbox,
             picture: this.state.picture,
-            formvalid: this.state.formvalid
+            formvalid: this.state.formvalid,
+            emailvalid: this.state.emailvalid,
         });
             
                        // Every time when push to button we put to local data
@@ -99,7 +101,8 @@ class App extends React.Component {
             birthday: '',
             checkbox: '',
             picture: '',
-            formvalid: true
+            formvalid: true,
+            emailvalid: 'required'
         });
             
         }  else {
@@ -129,7 +132,8 @@ class App extends React.Component {
             birthday: this.state.birthday,
             checkbox: this.state.checkbox,
             picture: this.state.picture,
-            formvalid: this.state.formvalid
+            formvalid: this.state.formvalid,
+            emailvalid: this.state.emailvalid,
         });
         
         // Every time when push to button we put to local data
@@ -147,10 +151,44 @@ class App extends React.Component {
             birthday: '',
             checkbox: '',
             picture: '',
-            formvalid: true
+            formvalid: true,
+            emailvalid: 'required',
         });
     
     };
+
+    handleInputEmail = (e) => {
+        
+        let name = e.target.name;
+        let value = e.target.value;
+        let curemailvalid = 'required';
+        
+        let items = [...this.state.items];
+        this.setState({
+            items,
+            formvalid: true
+        });
+        
+        /* eslint-disable-next-line */
+        let result = /^[a-z0-9\u007F-\uffff!#$%&'*+\/=?^_`{|}~-]+(?:\.[a-z0-9\u007F-\uffff!#$%&'*+\/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z]{2,}$/i.test(value);
+  
+
+        
+        if (result === true) {
+            curemailvalid = 'success'
+        } else {
+            curemailvalid = 'error'
+        }
+        
+        if (this.state.formvalid === true) {
+            this.setState({
+                [name]: value,
+                'emailvalid': curemailvalid
+            })
+        }
+        this.state = {'emailvalid': curemailvalid};
+    };
+
 
     handleInputChange = (e) => {
         
@@ -217,7 +255,7 @@ class App extends React.Component {
                     localData = localStorage.getItem('localData');
                 }
         } else { 
-             this.state = { username: '', nickname: '', password: '', urllink: '', email: '', birthday: '', checkbox: '', picture: '', formvalid: true,
+             this.state = { username: '', nickname: '', password: '', urllink: '', email: '', birthday: '', checkbox: '', picture: '', formvalid: true, emailvalid: 'required',
                 items:
                     [
                       {
@@ -229,7 +267,8 @@ class App extends React.Component {
                         "birthday": "10/02/2021",
                         "checkbox": "Yes",
                         "picture": "picture1",
-                        "formvalid": false
+                        "formvalid": false,
+                        "emailvalid": 'required',
                       }
                     ]
             };       
@@ -252,6 +291,7 @@ class App extends React.Component {
                             <ContactForm  
                                 handleFormSubmit={ this.handleFormSubmit } 
                                 handleInputChange={ this.handleInputChange }
+                                handleInputEmail={ this.handleInputEmail }
                                 newUsername={ this.state.username } 
                                 newNickname={ this.state.nickname } 
                                 newPassword={ this.state.password }
@@ -260,6 +300,7 @@ class App extends React.Component {
                                 newBirthday={ this.state.birthday }
                                 newCheckbox={ this.state.checkbox }
                                 newPicture={ this.state.picture }
+                                newFieldState={ this.state.emailvalid }
                                 />
                         </Panel>
                         <Panel>

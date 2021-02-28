@@ -32,8 +32,21 @@ class ContactForm extends Component {
                             value={this.props.newPassword} onChange={this.props.handleInputChange} />
                         <Input id="urllink" type="text" name="urllink" prepend="Link: " cls="fa-user" placeholder="URL link" 
                             value={this.props.newUrllink} onChange={this.props.handleInputChange} />
-                        <Input id="email" type="text" name="email" prepend="Email: " cls="mif-envelop" placeholder="Enter your email..." data-validate="required email" 
-                            value={this.props.newEmail} onChange={this.props.handleInputChange}  />
+                        <Input 
+                            id="email" 
+                            type="text" 
+                            name="email" 
+                            prepend="Email: " 
+                            cls="mif-envelop" 
+                            placeholder="Enter your email..." 
+                            data-validate="required email" 
+                            data-role="materialinput" 
+                            data-label="User email" 
+                            data-informer="Enter a valid email address"
+                            value={this.props.newEmail} 
+                            onChange={this.props.handleInputEmail}
+                            fieldState={this.props.newFieldState}
+                        />
                         <Input id="birthday" type="date" name="birthday" 
                             value={this.props.mewBirthday} onChange={this.props.handleInputChange}  />
                         <Checkbox name="checkbox" caption="Remember me"

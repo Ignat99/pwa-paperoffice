@@ -6,8 +6,8 @@ export default class ContactMemoryTable extends MemoryTable {
     }
         
     drawCell(val, props) {
-        if (props.name === 'name') {
-            return <a href="#">{val}</a>
+        if (props.name === 'urllink') {
+            return <a href={val}>{val}</a>
         }
         if (props.name == 'picture') {
             return <img src={val} />
@@ -29,6 +29,30 @@ export default class ContactMemoryTable extends MemoryTable {
     {
       "name": "name",
       "title": "User name",
+      "format": "text",
+      "sortable": true,
+      "sortDir": "asc",
+      "size": 400
+    },
+    {
+      "name": "nickname",
+      "title": "Nickname",
+      "format": "text",
+      "sortable": true,
+      "sortDir": "asc",
+      "size": 400
+    },
+    {
+      "name": "password",
+      "title": "password",
+      "format": "text",
+      "sortable": true,
+      "sortDir": "asc",
+      "size": 400
+    },
+    {
+      "name": "urllink",
+      "title": "Urllink",
       "format": "text",
       "sortable": true,
       "sortDir": "asc",
@@ -74,7 +98,7 @@ export default class ContactMemoryTable extends MemoryTable {
                     clsPagination='no-gap' 
                     clsEmptyTitle='text-center' 
                     head={tablePropsHeader} 
-                    body={items.map(item => [item.username, item.email, item.birthday, item.checkbox, item.picture ])} 
+                    body={items.map(item => [item.username, item.nickname, item.password, item.urllink, item.email, item.checkbox, item.birthday,  item.picture ])} 
                     scrollable="true" />
             </Container>
         )
